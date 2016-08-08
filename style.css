@@ -1,0 +1,198 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana,sans-serif;
+    margin: 0px;
+}
+
+/*carosuel container*/
+.carosuel-container {
+    max-width: 980px;
+    position: relative;
+    margin: auto;
+}
+
+/*slide number text*/
+.slide-number {
+    position: absolute;
+    top:0px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #f2f2f2;
+}
+
+/*slide text display on slide*/
+.text {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 15px;
+    color: #f2f2f2;
+}
+
+/*Next and Previous buttons style*/
+.prev, .next {
+    position: absolute;
+    top:0;
+    top:40%;
+    cursor: pointer;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+
+}
+/*position of the next button to the right*/
+.next {
+    right:0px;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a littel bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/*slide animation */
+.anim {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration:  1.5s ;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from{ opacity: 0.4}
+    to {opacity: 1 }
+}
+
+@keyframes fade {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+.thumbnails {
+    cursor: pointer;
+    height: 100px;
+    width: 135px ;
+    border: 2px solid grey;
+    background-color: #bbb;
+    border-radius: 1%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .thumbnails:hover {
+    border: 2px solid red;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration:  1.5s ;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.MyImage {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.MyImage:hover {
+    opacity: 0.7;
+}
+
+.modal {
+    display: none; /*Hidden by default*/
+    position: fixed; /*Stay in place*/
+    z-index: 1; /*place on top*/
+    padding-top:100px; /* location of the box*/
+    left:0px;
+    top:0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /*Enable scroll if needed */
+    background-color: rgb(0,0,0); /* back color */
+    background-color: rgba(0,0,0,0.9); /*black with opacity*/
+}
+
+/*modal content imaage style*/
+.modal-content {
+    margin:auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of modal image*/
+#caption {
+    margin:auto;
+    display: block;
+    /*width: 80%;*/
+    cursor: pointer;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0px;
+    height:150px;
+
+}
+
+
+/*Addd animation for image*/
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from { -webkit-transform: scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom  {
+    from { transform: scale(0)}
+    to {transform:scale(1)}
+}
+
+/*close button*/
+.close {
+    position: absolute;
+    top: 30px;
+    right: 215px;
+    color: #f1f1f1;
+    font-size: 21px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 768px){
+    .modal-content {
+        width: 100%;
+    }
+    .thumbnails {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .slprev, .slnext,.text {font-size: 11px}
+}
